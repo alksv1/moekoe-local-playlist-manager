@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "本地音乐歌单管理",
+  "plugin_id": "local-playlist-manager",
+  "version": "1.0.3",
+  "description": "将本地音乐添加到「我喜欢」和自建歌单，在当前客户端中与在线歌曲一起显示和播放。",
+  "moekoe": true,
+  "minversion": "1.6.0",
+  "author": {
+    "name": "MoeKoe Community"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_end",
+      "world": "MAIN"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
