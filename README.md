@@ -2,6 +2,10 @@
 
 MoeKoe Music 插件：将本地音乐添加到「我喜欢」或自建歌单，在歌单详情中与在线歌曲一起显示，并加入播放队列。
 
+## 示例视频
+
+[观看插件使用示例](./assets/demo.mp4)
+
 ## 安装
 
 1. 下载仓库中的 [local-playlist-manager.zip](./local-playlist-manager.zip)。在 GitHub 上打开该文件后，使用下载按钮保存 ZIP。
