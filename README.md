@@ -4,7 +4,7 @@ MoeKoe Music 插件：将本地音乐添加到「我喜欢」或自建歌单，�
 
 ## 示例视频
 
-[观看插件使用示例](./assets/demo.mp4)
+https://github.com/user-attachments/assets/0ab514e1-afc1-4230-98d4-0b6b3af5c49c
 
 ## 安装
 
