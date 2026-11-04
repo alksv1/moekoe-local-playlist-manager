@@ -8,7 +8,7 @@ MoeKoe Music 插件：将本地音乐添加到「我喜欢」或自建歌单，�
 
 ## 安装
 
-1. 下载仓库中的 [local-playlist-manager.zip](./local-playlist-manager.zip)。在 GitHub 上打开该文件后，使用下载按钮保存 ZIP。
+1. 从 [Releases](https://github.com/alksv1/moekoe-local-playlist-manager/releases/latest) 下载 `local-playlist-manager.zip`。
 2. 打开 MoeKoe Music 的插件管理，选择从 ZIP 安装插件。
 3. 安装或更新后，刷新插件并刷新客户端页面；必要时重新启动客户端。
 
