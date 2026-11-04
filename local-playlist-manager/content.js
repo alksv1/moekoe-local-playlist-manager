@@ -822,7 +822,8 @@
                 timelen: timelenMs,
                 bitrate: hostTrack?.bitrate || pluginTrack?.bitrate || 0,
                 sampleRate: hostTrack?.sampleRate || pluginTrack?.sampleRate || 0,
-                qualityInfo,
+                // Vue wraps track metadata in proxies, which IndexedDB cannot clone.
+                qualityInfo: qualityInfo ? { ...qualityInfo } : null,
                 coverBlob,
                 coverState,
                 handle,
@@ -1150,16 +1151,29 @@
                 return { added: 0, skipped };
             }
 
-            const db = await openPluginDB();
-            await new Promise((resolve, reject) => {
-                const tx = db.transaction([STORE_PLAYLIST_TRACKS], 'readwrite');
-                const store = tx.objectStore(STORE_PLAYLIST_TRACKS);
-                for (const rec of recordsToSave) {
-                    store.put(rec);
-                }
-                tx.oncomplete = () => resolve();
-                tx.onerror = (e) => reject(e.target.error);
-            });
+            try {
+                const db = await openPluginDB();
+                await new Promise((resolve, reject) => {
+                    const tx = db.transaction([STORE_PLAYLIST_TRACKS], 'readwrite');
+                    const store = tx.objectStore(STORE_PLAYLIST_TRACKS);
+                    try {
+                        for (const rec of recordsToSave) {
+                            store.put(rec);
+                        }
+                    } catch (err) {
+                        tx.abort();
+                        reject(err);
+                        return;
+                    }
+                    tx.oncomplete = () => resolve();
+                    tx.onerror = (e) => reject(e.target.error);
+                    tx.onabort = () => reject(tx.error || new Error('保存事务已中止'));
+                });
+            } catch (err) {
+                console.error(PLUGIN_TAG, '保存本地歌曲到歌单失败:', err);
+                showMessage('添加失败，无法保存本地歌曲到歌单', 'error');
+                return { added: 0, skipped: 0 };
+            }
 
             for (const rec of recordsToSave) {
                 if (rec.handle) {

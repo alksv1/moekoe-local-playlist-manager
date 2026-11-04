@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "本地音乐歌单管理",
   "plugin_id": "local-playlist-manager",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "将本地音乐添加到「我喜欢」和自建歌单，在当前客户端中与在线歌曲一起显示和播放。",
   "moekoe": true,
   "minversion": "1.6.0",
