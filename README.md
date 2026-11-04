@@ -28,6 +28,6 @@ MoeKoe Music 插件：将本地音乐添加到「我喜欢」或自建歌单，�
 
 ## 开发和打包
 
-插件源码位于 [local-playlist-manager](./local-playlist-manager/)；ZIP 根目录必须包含 `local-playlist-manager/manifest.json`，才能通过客户端插件安装器识别。
+插件源码和 `manifest.json` 位于仓库根目录，供插件市场审核并生成源码快照。手动发布的安装 ZIP 应将这些文件放在同一个顶层目录中，例如 `local-playlist-manager/manifest.json`，以便客户端插件安装器识别。
 
 本项目基于 [MoeKoe Music](https://github.com/MoeKoeMusic/MoeKoeMusic) 的插件机制开发，遵循 [GPL-2.0](./LICENSE) 许可证。
